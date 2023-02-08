@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->boolean('has_been_orderd')->default(false);
             $table->date('order_date')->nullable();
-            $table->integer('user_id');
+            $table->foreignId('user_id')->constrained('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
